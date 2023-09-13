@@ -10,6 +10,8 @@ This repository houses a straightforward URL shortener Fullstack Application bui
 
 ### Installation and Usage
 - Each of these services comes with its own comprehensive README, which provides detailed instructions for their installation processes and optimisation to consider.
+-  API SERVICE README: https://github.com/sammyboardman/primarybid-tests/blob/master/url-shortner-api-service/README.md
+-  FrontEnd SERVICE README: https://github.com/sammyboardman/primarybid-tests/blob/master/url-shortner-frontend/README.md
 
 ## Asumptions
 - URLs with the same domain name but having distinct paths or subdomains are treated as separate and unique entities.
