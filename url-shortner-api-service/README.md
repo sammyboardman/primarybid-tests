@@ -1,0 +1,114 @@
+# URL Shortener API Service
+
+This repository houses a straightforward URL shortener API service built with TypeScript. It allows you to convert lengthy URLs into shorter, more shareable links.
+
+## Getting Started
+
+## Available APIs:
+### Accessing API Documentation
+- Swagger API documentation is accessible at the following path:
+```
+{{host}}/api-docs/
+```
+- `Get Previous Shortened URLs`: GET {{host}}/api/urls
+- `Shorten a URL`: POST {{host}}/api/urls/shorten-url
+
+Replace {{host}} with the actual host or domain where the API documentation will be accessible.
+
+### Prerequisites
+
+BBefore you begin, please make sure you have `cd` into  the `url-shortner-api-service` folder
+
+- Node.js (v16.0 or higher): You can download it from https://nodejs.org/.
+- npm: Visit https://www.npmjs.com/ for npm installation instructions.
+- MongoDB (v6.0 and above): Ensure you have MongoDB version 6.0 or a higher version installed.
+- Docker (optional): If needed, you can find Docker installation details at https://www.docker.com/.
+
+### Installation and Usage
+To get started with the URL Shortener API service, follow these steps:
+
+#### Environment Configuration
+ - Create a .env configuration file in the root `url-shortner-api-service` folder of the project.
+ - Configure the following environment variables in the `.env` file:
+
+```
+PORT=
+DB_URI=
+SHORTNER_BASE_URL=https://pbid.io
+```
+#### Installing Dependencies
+- To install the required project dependencies, Use the `cd` (change directory) command to navigate to the root `url-shortner-api-service` directory of the project where the package.json file is located and execute the following command in your terminal:
+```
+npm install
+```
+#### Building the Project
+- In the root `url-shortner-api-service`  directory of the project where the package.json file is located, build the TypeScript source code by running:
+
+```
+npm run build
+```
+#### Lint the Project
+- To perform linting on the TypeScript source code, navigate to the project's root `url-shortner-api-service` directory, where the package.json file is situated, and execute the following command:
+
+```
+npm run lint
+```
+
+#### Running the Service
+- To start the URL Shortener API service, use the following command:
+```
+npm start
+```
+#### Running Tests
+- You can run tests and generate coverage reports by executing:
+
+```
+npm run test:coverage
+```
+
+## Asumptions
+ - This project has straightforward API validation requirements with only three fields to validate: mainUrl (the original URL), page, and limit (for pagination in the getUrl API). To keep the project lightweight, I've opted to create a simple, extensible object validator instead of installing a dedicated validation library like Joi or Zod. This approach minimizes library redundancy for this specific project. However, if the need for complex validations arises, I would choose Zod over Joi for the following reasons:
+   - TypeScript Integration: Zod is designed for TypeScript, offering strong typing and type safety.
+   - Simplicity: Zod has a simple and declarative syntax for easy schema definition.
+   - Predictable Error Handling: It provides consistent error handling for validation failures.
+   - Extensibility: Zod allows for schema composition and customization.
+   - Lightweight: It often results in smaller bundle sizes, making it suitable for frontend optimization.
+- URLs sharing the same domain name but having distinct paths or subdomains are treated as separate and unique entities.
+- Each identical URL will consistently produce the same shortened URL.
+
+ - This system assumes that the maximum number of shortened URLs that can be generated is limited to 4,294,967,296. If there is a need to generate more shortened URLs beyond this limit, it would necessitate a modification to the underlying algorithm, like increasing te length of the generated characters. Please note that this system was intentionally designed to be straightforward and highly efficient for typical use cases.
+ - The regular expression used to validate input url ^(https?:\/\/)([a-zA-Z0-9.-]+(\.[a-zA-Z]{2,})+)(\/[^\s]*)?$ is designed to match URLs with certain criteria. Here are the criteria for a URL to pass this regex:
+Protocol (http or https):
+The URL must start with either "http://" or "https://".
+Domain Name:
+The domain name should consist of alphanumeric characters (letters and numbers), hyphens, and periods.
+It must contain at least one period (dot).
+It should have at least two letters following the last period to represent the top-level domain (TLD), such as ".com", ".org", ".net", etc.
+Path (optional):
+  The path is optional and starts with a forward slash "/".
+  It can contain any characters except whitespace.
+Here are some examples of URLs that would match this regex:
+ 1. http://www.example.com
+ 2. https://sub.domain.co/path/to/resource
+ 3. https://localhost
+ 4. http://127.0.0.1:8080/page
+
+
+## Explaining the Algorithm for Generating Unique URL Shorteners
+- The first 8 characters of a hash generated by a cryptographic hash function like SHA-256 are highly unique. Cryptographic hash functions are designed for uniform distribution of output values, making it exceptionally unlikely for two different inputs to produce the same hash (collision).
+
+- In practice, the probability of two different inputs producing the same first 8 characters of a SHA-256 hash is exceedingly low. These 8 characters represent 32 bits of data (each hexadecimal character symbolizes 4 bits), and SHA-256 generates a 256-bit hash.
+
+- The number of possible combinations for 32 bits is 2^32, which equals 4,294,967,296. This implies there are 4,294,967,296 potential unique values for the first 8 characters.
+
+- While it is theoretically possible for a collision to occur (i.e., two different inputs producing the same first 8 characters), the likelihood of such an event is so minuscule that, in practice, it can be considered negligible for most purposes.
+
+## Optimisations to consider
+1. Rate Limiting for Enhanced Security
+Implementing rate limiting is essential to fortify the security of the application. By restricting the number of requests a user or IP address can make within a specified time frame, we can mitigate the risk of abuse, such as DDoS attacks or excessive API usage. This security measure ensures that the system remains responsive and available to legitimate users while deterring malicious activities.
+
+2. Enhance Testing Coverage
+To ensure the robustness and reliability of the application, consider expanding the testing strategy. This includes implementing more integration tests and end-to-end tests. Integration tests validate the interactions between different components of the system, ensuring they work harmoniously. End-to-end tests simulate real user scenarios, checking the functionality of the application from start to finish. Together, these testing approaches help identify and address potential issues before they reach production.
+
+3. Integrate External Logging Systems
+Integrating external logging systems, such as Loggly, can provide valuable insights into the application's behavior and performance. By sending logs and metrics to an external service, we gain access to advanced analytics and visualization tools. This allows for in-depth analysis of application logs, identification of anomalies, and proactive troubleshooting. Utilizing external logging systems empowers the team to make informed decisions and maintain a high level of visibility into the application's health and performance.

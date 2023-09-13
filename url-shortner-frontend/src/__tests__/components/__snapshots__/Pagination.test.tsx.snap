@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders pagination correctly 1`] = `
+<div>
+  <nav>
+    <ul
+      class="pagination"
+    >
+      <li
+        class="page-item"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            arrow-back-id
+          </title>
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"
+          />
+        </svg>
+      </li>
+      <li
+        class="active-page-item"
+      >
+        1
+      </li>
+      <li
+        class="page-item"
+      >
+        2
+      </li>
+      <li
+        class="page-item"
+      >
+        3
+      </li>
+      <li
+        class="page-item"
+      >
+        4
+      </li>
+      <li
+        class="page-item"
+      >
+        5
+      </li>
+      <li
+        class="page-item"
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            arrow-next-id
+          </title>
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+          <path
+            d="M6.23 20.23L8 22l10-10L8 2 6.23 3.77 14.46 12z"
+          />
+        </svg>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
