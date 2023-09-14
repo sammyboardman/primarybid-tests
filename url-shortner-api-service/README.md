@@ -104,11 +104,11 @@ Here are some examples of URLs that would match this regex:
 - While it is theoretically possible for a collision to occur (i.e., two different inputs producing the same first 8 characters), the likelihood of such an event is so minuscule that, in practice, it can be considered negligible for most purposes.
 
 ## Optimisations to consider
-1. Rate Limiting for Enhanced Security
+1. Rate Limiting for Enhanced Security:
 Implementing rate limiting is essential to fortify the security of the application. By restricting the number of requests a user or IP address can make within a specified time frame, we can mitigate the risk of abuse, such as DDoS attacks or excessive API usage. This security measure ensures that the system remains responsive and available to legitimate users while deterring malicious activities.
 
-2. Enhance Testing Coverage
+2. Enhance Testing Coverage:
 To ensure the robustness and reliability of the application, consider expanding the testing strategy. This includes implementing more integration tests and end-to-end tests. Integration tests validate the interactions between different components of the system, ensuring they work harmoniously. End-to-end tests simulate real user scenarios, checking the functionality of the application from start to finish. Together, these testing approaches help identify and address potential issues before they reach production.
 
-3. Integrate External Logging Systems
+3. Integrate External Logging Systems:
 Integrating external logging systems, such as Loggly, can provide valuable insights into the application's behavior and performance. By sending logs and metrics to an external service, we gain access to advanced analytics and visualization tools. This allows for in-depth analysis of application logs, identification of anomalies, and proactive troubleshooting. Utilizing external logging systems empowers the team to make informed decisions and maintain a high level of visibility into the application's health and performance.
