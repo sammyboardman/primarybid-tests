@@ -1,6 +1,6 @@
 # URL Shortener API Service
 
-This repository houses a straightforward URL shortener API service built with TypeScript. It allows you to convert lengthy URLs into shorter, more shareable links.
+This repository houses a straightforward URL shortener API service built with Node using TypeScript. It allows you to convert lengthy URLs into shorter, more shareable links.
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ Replace {{host}} with the actual host or domain where the API documentation will
 
 ### Prerequisites
 
-BBefore you begin, please make sure you have `cd` into  the `url-shortner-api-service` folder
+Before you begin, please make sure you have `cd` into  the `url-shortner-api-service` folder
 
 - Node.js (v16.0 or higher): You can download it from https://nodejs.org/.
 - npm: Visit https://www.npmjs.com/ for npm installation instructions.
@@ -67,7 +67,7 @@ npm run test:coverage
 ```
 
 ## Asumptions
- - This project has straightforward API validation requirements with only three fields to validate: mainUrl (the original URL), page, and limit (for pagination in the getUrl API). To keep the project lightweight, I've opted to create a simple, extensible object validator instead of installing a dedicated validation library like Joi or Zod. This approach minimizes library redundancy for this specific project. However, if the need for complex validations arises, I would choose Zod over Joi for the following reasons:
+ - This project has straightforward API validation requirements with only three fields to validate: mainUrl (the original URL), page, and limit (for pagination in the getUrl API). To keep the project lightweight, I've opted to use Zod validation library. I chose Zod over Joi for the following reasons:
    - TypeScript Integration: Zod is designed for TypeScript, offering strong typing and type safety.
    - Simplicity: Zod has a simple and declarative syntax for easy schema definition.
    - Predictable Error Handling: It provides consistent error handling for validation failures.
