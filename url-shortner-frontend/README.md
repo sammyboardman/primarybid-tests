@@ -76,7 +76,7 @@ While this project as intentionally kept simple, there are several areas where I
 - Improved Styling: Enhance the visual appeal and maintainability of the application by leveraging established styling libraries such as React Bootstrap or Material-UI. These libraries offer a wide range of pre-designed components and styles, making it easier to create a polished and consistent user interface.
 - Reducing Component Re-renders: Use of memoization techniques (e.g., React.memo) to prevent unnecessary re-renders of components.
 - Centralized State: I will use Redux to provide a single source of truth for the application's state, making it easier to manage and share data between components. I will also enforce a unidirectional data flow, which will help ensure that state changes are predictable and traceable.
-Error Tracking Services:
-- Use of error tracking services like Sentry or Rollbar to capture and analyze errors and exceptions in the application. These services provide detailed error reports, including stack traces and contextual information.
+- Error Tracking Services:
+Use of error tracking services like Sentry or Rollbar to capture and analyze errors and exceptions in the application. These services provide detailed error reports, including stack traces and contextual information.
 
 By incorporating these optimizations, the project can be elevated to the next level, delivering a more robust, user-friendly, and visually appealing application
